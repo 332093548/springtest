@@ -13,6 +13,19 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
          scope="prototype":则是多例,而且是在需要时加载
          lazy-init="true":懒加载,而且是单例模式.
     -->
-    <bean id="product" class="cn.dw.model.Product" lazy-init="true" />
+    <!-- <bean id="product" class="cn.dw.model.Product" lazy-init="true" /> -->
+    <bean id="product" class="cn.dw.model.Product">
+    	<!-- 不但可以创建bean(类),而且可以对属性进行赋值操作: 构造方法、set方法
+    	<constructor-arg name="name" value="admin" />
+    	<constructor-arg name="price" value="1000.00" />
+    	 -->
+    	<property name="name" value="admin" />
+    	<property name="price" value="1000.00" />
+    	<property name="date" value="2018/05/22" />
+    	<!-- ref 用来关联另一个对象 -->
+    	<property name="productDaoImpl" ref="abc" />
+    </bean>
     
+    <bean id="abc" class="cn.dw.model.ProductDaoImpl" />
+
 </beans>
