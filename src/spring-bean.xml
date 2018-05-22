@@ -7,5 +7,12 @@ http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-
+    <!-- spring 是XML完成java bean的管理在项目中：dao servle utils工具类都应该是单模式 -->
+    <!-- 把bean配置在xml中可以高内聚低耦合 -->
+    <!-- class指向的是类全名 id:代表的是逻辑名称 : 默认情况下管理的Bean是单例模式,而且只有XML被加载所有的Bean就会被创建
+         scope="prototype":则是多例,而且是在需要时加载
+         lazy-init="true":懒加载,而且是单例模式.
+    -->
+    <bean id="product" class="cn.dw.model.Product" lazy-init="true" />
+    
 </beans>
